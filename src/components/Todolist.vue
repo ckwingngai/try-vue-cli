@@ -20,8 +20,10 @@
 <script>
 export default {
   name: 'todo-list',
-  data: {
-    message: 'Hello Vue!'
+  data () {
+    return {
+      message: 'Hello Vue!'
+    }
   },
   computed: {
     list () {

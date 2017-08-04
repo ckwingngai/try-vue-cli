@@ -22,19 +22,12 @@ export function createStore () {
           title: state.inputText,
           active: true
         }
-        Vue.set(state, 'list', [...state.list, obj])
-        console.log(obj)
-        // let key = 0
-        // if (!_.isEmpty(state.list)) {
-        //   key = Number(_.max(Object.keys(state.list))) + 1
-        // }
-        // console.log('key', key)
-        // Vue.set(state, 'list[key]', obj)
+        /* Use spread operator in Vue.set */
+        // Vue.set(state, 'list', [...state.list, obj])
+        // console.log(obj)
 
-        // this.state.list.push({
-        //   title: state.inputText,
-        //   active: true
-        // })
+        /* Directly push to the state array */
+        state.list.push(obj)
         Vue.set(state, 'inputText', '')
       },
       changeText (state, payload) {
@@ -61,7 +54,7 @@ export function createStore () {
             setTimeout(() => {
               commit('addItem')
               resolve()
-            }, 500)
+            }, 5)
           })
         } else {
           alert('Please enter something!')
